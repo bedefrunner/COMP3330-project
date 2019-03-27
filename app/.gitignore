@@ -1,0 +1,7 @@
+/build
+.idea/*
+.idea/.name
+.idea/gradle.xml
+.idea/misc.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
