@@ -1,3 +1,13 @@
 <resources>
+
     <string name="app_name">MoneyGoals</string>
+
+    <string-array name="categories_array">
+        <item>Nightlife</item>
+        <item>Dinning</item>
+        <item>Groseries</item>
+        <item>Transport</item>
+        <item>Housing</item>
+    </string-array>
+
 </resources>
