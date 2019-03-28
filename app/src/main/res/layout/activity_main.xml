@@ -1,18 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/transactionsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/addTransactionButton"
+            android:layout_width="30dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/plus"
+            android:onClick="addNewTransaction"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:text="Transactions" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/filterTransactions"
+            android:layout_width="30dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/filter"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/objectiveReportLayout">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+
+            <ProgressBar
+                android:id="@+id/objectiveProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_weight="5"
+                android:layout_marginStart="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:progress="45"
+                android:indeterminate="true"
+                android:indeterminateTint="@android:color/black"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="45%" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/warning" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="5"
+                android:text="Warning. You are spending too much !" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:id="@+id/trioButtonsLayout"
+        android:layout_below="@+id/objectiveReportLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Any"
+            android:bottomLeftRadius="20dp"
+            android:topLeftRadius="20dp"
+            android:textColor="@color/design_default_color_primary_dark"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expenses"
+            android:textColor="@color/design_default_color_primary_dark"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Revenues"
+            android:bottomRightRadius="20dp"
+            android:topRightRadius="20dp"
+            android:bottomLeftRadius="0dp"
+            android:topLeftRadius="0dp"
+            android:textColor="@color/design_default_color_primary_dark"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+            
+
+                <View android:id="@+id/separator"
+                    android:background="#b3ecff"
+                    android:layout_width="260dp"
+                    android:layout_height="1dp"
+                    />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/transactionsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <LinearLayout
+                android:id="@+id/transactionExample"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/categoryImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/burger" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/transactionDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Big Mac" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <TextView
+                    android:id="@+id/transactionDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="27/03/19" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <TextView
+                    android:id="@+id/transactionAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="25 $HK" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
