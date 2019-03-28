@@ -1,6 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="54dp">
+            <ImageButton
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent" app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+                    android:id="@+id/closeButton" android:layout_weight="1"/>
+            <TextView
+                    android:text="New Transaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="1"
+                    android:textSize="36sp" android:textStyle="bold" android:textAlignment="center"/>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+            <TextView
+                    android:text="Type"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    android:textSize="24sp"
+                    android:textAlignment="textStart"/>
+            <RadioGroup
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+                <RadioButton
+                        android:text="Expense"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/expenseButton" android:layout_weight="1"
+                        android:textSize="18sp"/>
+                <RadioButton
+                        android:text="Income"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/incomeButton" android:layout_weight="1"
+                        android:textSize="18sp"/>
+            </RadioGroup>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+            <TextView
+                    android:text="Amount"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent" android:id="@+id/textView4" android:layout_weight="1"
+                    android:textSize="24sp"/>
+            <EditText
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText" android:layout_weight="2" android:textAlignment="center"/>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+            <Button
+                    android:text="Choose Date"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent" android:id="@+id/myDatePickerButton"
+                    android:layout_weight="1" android:textSize="16sp" android:fontFamily="sans-serif"
+                    android:textAlignment="textStart"/>
+            <TextView
+                    android:layout_width="0px"
+                    android:id="@+id/showMyDate" android:layout_weight="2" android:layout_height="match_parent"
+                    android:textSize="24sp" android:textAlignment="center"/>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="38dp">
+            <TextView
+                    android:text="Category"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent" android:id="@+id/textView5" android:layout_weight="1"
+                    android:textSize="24sp"/>
+            <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/categoriesSpinner" android:layout_weight="2"
+                    android:gravity="center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
