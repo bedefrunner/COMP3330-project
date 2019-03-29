@@ -13,8 +13,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void addNewTransaction(){
-        Intent i = new Intent(this, NewTransaction.class);
-        startActivity(i);
-    }
+
+
+    //public void addNewTransaction(){
+        //Intent i = new Intent(this, NewTransaction.class);
+        //startActivity(i);
+    //}
 }

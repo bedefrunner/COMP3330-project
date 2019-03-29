@@ -16,8 +16,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewTransaction">
-        </activity>
+        <!--<activity android:name=".NewTransaction">
+        </activity>-->
     </application>
 
 </manifest>
