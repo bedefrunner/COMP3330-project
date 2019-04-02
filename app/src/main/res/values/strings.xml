@@ -2,7 +2,9 @@
 
     <string name="app_name">MoneyGoals</string>
 
+    <string name="Category">Category</string>
     <string-array name="categories_array">
+        <item>Select category</item>
         <item>Nightlife</item>
         <item>Dinning</item>
         <item>Groseries</item>

@@ -3,8 +3,18 @@ package com.example.moneygoals;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.Color;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.Editable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import android.os.Bundle;
 
@@ -30,9 +40,8 @@ public class NewTransaction extends AppCompatActivity {
         setContentView(R.layout.new_transaction);
 
         mDateDisplay = (TextView) findViewById(R.id.showMyDate);
-        mPickDate = (Button) findViewById(R.id.myDatePickerButton);
 
-        mPickDate.setOnClickListener(new View.OnClickListener() {
+        mDateDisplay.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 showDialog(DATE_DIALOG_ID);
             }
@@ -47,11 +56,80 @@ public class NewTransaction extends AppCompatActivity {
         // display the current date
         updateDisplay();
 
-        Spinner spinner = (Spinner) findViewById(R.id.categoriesSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        // Initializing a String Array
+        String[] categories = new String[]{
+                "New category",
+                "Nightlife",
+                "Dinner",
+                "Housing",
+                "Health",
+                "Select category..."
+        };
 
+        final List<String> categoriesList = new ArrayList<>(Arrays.asList(categories));
+
+        final Spinner spinner = (Spinner) findViewById(R.id.categoriesSpinner);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categoriesList) {
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View v = super.getView(position, convertView, parent);
+                if (position == getCount()) {
+                    ((TextView)v.findViewById(android.R.id.text1)).setText("");
+                    ((TextView)v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //"Hint to be displayed"
+                }
+
+                return v;
+            }
+
+            @Override
+            public int getCount() {
+                return super.getCount() - 1; // you dont display last item. It is used as hint.
+            }
+
+        };
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setSelection(adapter.getCount()); //display hint
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0)
+                {
+                    // Set an EditText view to get user input
+                    final EditText input = new EditText(NewTransaction.this);
+
+                    new AlertDialog.Builder(NewTransaction.this)
+                            .setMessage("New category")
+                            .setView(input)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Editable editable = input.getText();
+
+
+                                    categoriesList.add(1, editable.toString());
+                                    adapter.notifyDataSetChanged();
+                                    spinner.setSelection(1);
+
+
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    // Do nothing.
+                                }
+                            }).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private String getMonthForInt(int num) {
@@ -94,3 +172,40 @@ public class NewTransaction extends AppCompatActivity {
     }
 
 }
+
+/*public class SpinnerActivity extends AppCompatActivity implements OnItemSelectedListener {
+
+    public void onItemSelected(AdapterView<?> parent, final View view,
+                               int pos, long id) {
+        if (pos==3)
+        {
+            // Set an EditText view to get user input
+            final EditText input = new EditText(this);
+
+            new AlertDialog.Builder(this)
+                    .setMessage("Enter your Point here")
+                    .setView(input)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Editable editable = input.getText();
+
+
+                            arrayList.add(editable.toString());
+                            adapter.notifyDataSetChanged();
+
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // Do nothing.
+                        }
+                    }).show();
+        }
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+}*/

@@ -10,7 +10,7 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="54dp">
+                android:layout_height="37dp">
             <ImageButton
                     android:layout_width="99dp"
                     android:layout_height="match_parent" app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
@@ -19,24 +19,20 @@
                     android:text="New Transaction"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="1"
-                    android:textSize="36sp" android:textStyle="bold" android:textAlignment="center"/>
+                    android:textSize="30sp" android:textStyle="bold" android:textAlignment="center"/>
         </LinearLayout>
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
+        <TextView
+                android:text="Type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="38dp">
-            <TextView
-                    android:text="Type"
-                    android:layout_width="0px"
-                    android:layout_height="match_parent"
-                    android:id="@+id/textView2"
-                    android:layout_weight="1"
-                    android:textSize="24sp"
-                    android:textAlignment="textStart"/>
             <RadioGroup
                     android:layout_width="0px"
                     android:layout_height="match_parent"
@@ -46,70 +42,81 @@
                         android:text="Expense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/expenseButton" android:layout_weight="1"
-                        android:textSize="18sp"/>
+                        android:textSize="14sp"/>
                 <RadioButton
                         android:text="Income"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/incomeButton" android:layout_weight="1"
-                        android:textSize="18sp"/>
+                        android:textSize="14sp"/>
             </RadioGroup>
         </LinearLayout>
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
+        <TextView
+                android:text="Amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView3"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="38dp">
-            <TextView
-                    android:text="Amount"
-                    android:layout_width="0px"
-                    android:layout_height="match_parent" android:id="@+id/textView4" android:layout_weight="1"
-                    android:textSize="24sp"/>
+
+            <!--
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    -->
             <EditText
                     android:layout_width="0px"
                     android:layout_height="match_parent"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText" android:layout_weight="2" android:textAlignment="center"/>
+                    android:id="@+id/editText" android:layout_weight="2" android:textAlignment="viewStart"
+                    android:textSize="14sp"/>
+        <!-- </android.support.design.widget.TextInputLayout> -->
         </LinearLayout>
+
+
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
+        <TextView
+                android:text="Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView6" />
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="38dp">
-            <Button
-                    android:text="Choose Date"
-                    android:layout_width="0px"
-                    android:layout_height="match_parent" android:id="@+id/myDatePickerButton"
-                    android:layout_weight="1" android:textSize="16sp" android:fontFamily="sans-serif"
-                    android:textAlignment="textStart"/>
             <TextView
                     android:layout_width="0px"
                     android:id="@+id/showMyDate" android:layout_weight="2" android:layout_height="match_parent"
-                    android:textSize="24sp" android:textAlignment="center"/>
+                    android:textSize="14sp" android:textAlignment="viewStart"/>
         </LinearLayout>
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
+        <TextView
+                android:text="@string/Category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView7"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="38dp">
-            <TextView
-                    android:text="Category"
-                    android:layout_width="0px"
-                    android:layout_height="match_parent" android:id="@+id/textView5" android:layout_weight="1"
-                    android:textSize="24sp"/>
             <Spinner
                     android:layout_width="0dp"
                     android:layout_height="match_parent" android:id="@+id/categoriesSpinner" android:layout_weight="2"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:prompt="@string/Category"/>
         </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
     </LinearLayout>
 </RelativeLayout>
