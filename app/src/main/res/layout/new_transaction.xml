@@ -6,7 +6,8 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" android:layout_marginTop="6dp" android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp" android:layout_marginBottom="6dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -71,7 +72,7 @@
                     android:ems="10"
                     android:id="@+id/editText" android:layout_weight="2" android:textAlignment="viewStart"
                     android:textSize="14sp"/>
-        <!-- </android.support.design.widget.TextInputLayout> -->
+            <!-- </android.support.design.widget.TextInputLayout> -->
         </LinearLayout>
 
 
@@ -82,7 +83,7 @@
         <TextView
                 android:text="Date"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView6" />
+                android:layout_height="wrap_content" android:id="@+id/textView6"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -114,6 +115,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"/>
+        <TextView
+                android:text="Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView8"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="76dp">
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:singleLine="false"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="150"
+                    android:scrollHorizontally="false"
+                    android:isScrollContainer="true"
+                    android:maxLines="4"
+                    android:ems="10"
+                    android:id="@+id/editText4" android:layout_weight="1" android:textSize="14sp"/>
+        </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
