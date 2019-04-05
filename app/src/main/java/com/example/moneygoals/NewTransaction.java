@@ -109,11 +109,9 @@ public class NewTransaction extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     Editable editable = input.getText();
 
-
                                     categoriesList.add(1, editable.toString());
                                     adapter.notifyDataSetChanged();
                                     spinner.setSelection(1);
-
 
                                 }
                             })
@@ -172,40 +170,3 @@ public class NewTransaction extends AppCompatActivity {
     }
 
 }
-
-/*public class SpinnerActivity extends AppCompatActivity implements OnItemSelectedListener {
-
-    public void onItemSelected(AdapterView<?> parent, final View view,
-                               int pos, long id) {
-        if (pos==3)
-        {
-            // Set an EditText view to get user input
-            final EditText input = new EditText(this);
-
-            new AlertDialog.Builder(this)
-                    .setMessage("Enter your Point here")
-                    .setView(input)
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            Editable editable = input.getText();
-
-
-                            arrayList.add(editable.toString());
-                            adapter.notifyDataSetChanged();
-
-
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            // Do nothing.
-                        }
-                    }).show();
-        }
-
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
-}*/
